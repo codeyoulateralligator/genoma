@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-vcf_explorer_v2.py - read-only educational VCF explorer with console tables and PDF report.
+genoma.py - read-only educational VCF explorer with console tables and PDF report.
 
 Examples
 --------
-    python vcf_explorer_v2.py Genoom.vcf.gz
-    python vcf_explorer_v2.py Genoom.vcf.gz --pdf my_genetics_report.pdf
-    python vcf_explorer_v2.py Genoom.vcf.gz --no-pdf --json report.json
+    python3 genoma.py Genoom.vcf.gz
+    python3 genoma.py Genoom.vcf.gz --pdf my_genetics_report.pdf
+    python3 genoma.py Genoom.vcf.gz --no-pdf --json report.json
 
 Dependencies
 ------------
@@ -843,7 +843,7 @@ def make_pdf(report: Dict[str, Any], output_path: str) -> None:
 def default_pdf_path(vcf_path: str) -> str:
     base = os.path.basename(vcf_path)
     base = re.sub(r"\.vcf(?:\.gz)?$", "", base, flags=re.IGNORECASE)
-    return os.path.join(os.path.dirname(os.path.abspath(vcf_path)), f"{base}_genetic_report_v2.pdf")
+    return os.path.join(os.path.dirname(os.path.abspath(vcf_path)), f"{base}_genetic_report.pdf")
 
 
 def main() -> int:
